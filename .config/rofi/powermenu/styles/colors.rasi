@@ -1,0 +1,10 @@
+/*
+ * Change the colorscheme for every menu simply by editing this file...
+ *
+ * Available Color Schemes
+ *
+ * dracula
+ *
+ */
+
+@import "dracula.rasi"

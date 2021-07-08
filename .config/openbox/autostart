@@ -1,0 +1,21 @@
+## Set ABNT2
+setxkbmap -model abnt2 -layout br &
+
+## Restore Wallpaper
+nitrogen --restore
+
+## Launch Polybar
+sh ~/.config/polybar/launch.sh --grayblocks
+
+## Launch Plank
+exec plank &
+
+## Notification Daemon
+exec dunst &
+
+## Start Compositing Manager
+exec picom &
+
+## Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &

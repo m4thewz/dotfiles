@@ -1,0 +1,6 @@
+[submodule ".icons/Dracula"]
+	path = .icons/Dracula
+	url = https://github.com/matheuuus/dracula-icons
+[submodule ".themes/Dracula"]
+	path = .themes/Dracula
+	url = https://github.com/matheuuus/dracula-theme
