@@ -27,6 +27,8 @@ Components | Packages / Programs
 **CLI System Information**| `neofetch`
 **CLI Shell**             | `zsh`
 
+![screenshot](./screenshot.png)
+
 ## Contributing
 Pull requests are welcome. 
 
