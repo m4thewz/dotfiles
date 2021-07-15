@@ -763,7 +763,7 @@
   ##############################[ node_version: node.js version ]###############################
   typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=2
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
-  
+  typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
   #######################[ go_version: go version (https://golang.org) ]########################
   
   typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=6
