@@ -37,7 +37,7 @@ rdialog () {
 
 # Display Help
 show_msg() {
-  rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
+  rofi -theme "$ddir/askpass.rasi" -e "Opções válidas: Sim / Não / y / n"
 }
 
 # Variable passed to rofi
@@ -47,9 +47,9 @@ chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-
 case $chosen in
   $shutdown)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
-    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]]; then
       systemctl poweroff
-    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+    elif [[ $ans == "no" ]] || [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]]; then
       exit
     else
         show_msg
@@ -57,9 +57,9 @@ case $chosen in
   ;;
   $reboot)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
-    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]]; then
       systemctl reboot
-    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]]; then
       exit
     else
       show_msg
@@ -70,9 +70,9 @@ case $chosen in
   ;;
   $logout)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
-    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]]; then
       bspc quit
-    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]]; then
       exit
     else
       show_msg
