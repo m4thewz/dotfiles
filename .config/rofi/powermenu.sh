@@ -46,7 +46,7 @@ options="$shutdown\n$reboot\n$logout\n$lock"
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
 case $chosen in
   $shutdown)
-    ans=$(rdialog &)
+    ans=$(rdialog | tr '[:upper:]' '[:lower:]')
     if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
       systemctl poweroff
     elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
@@ -56,7 +56,7 @@ case $chosen in
     fi
   ;;
   $reboot)
-    ans=$(rdialog &)
+    ans=$(rdialog | tr '[:upper:]' '[:lower:]')
     if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
       systemctl reboot
     elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
@@ -69,7 +69,7 @@ case $chosen in
     betterlockscreen --lock
   ;;
   $logout)
-    ans=$(rdialog &)
+    ans=$(rdialog | tr '[:upper:]' '[:lower:]')
     if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
       bspc quit
     elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
