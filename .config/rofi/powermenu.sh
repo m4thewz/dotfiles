@@ -23,9 +23,8 @@ ddir="$HOME"/.config/rofi/dialogs
 
 shutdown=""
 reboot=""
-lock=""
-suspend=""
 logout=""
+lock=""
 
 # Ask for confirmation
 rdialog () {
@@ -42,7 +41,7 @@ show_msg() {
 }
 
 # Variable passed to rofi
-options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+options="$shutdown\n$reboot\n$logout\n$lock"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
 case $chosen in
@@ -68,18 +67,6 @@ case $chosen in
         ;;
     $lock)
         betterlockscreen --lock
-        ;;
-    $suspend)
-		ans=$(rdialog &)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-			mpc -q pause
-			amixer set Master mute
-			betterlockscreen --suspend
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-			exit
-        else
-			show_msg
-        fi
         ;;
     $logout)
 		ans=$(rdialog &)
