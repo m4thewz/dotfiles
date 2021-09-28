@@ -28,7 +28,7 @@ lock=""
 
 # Ask for confirmation
 rdialog () {
-rofi -dmenu\
+  rofi -dmenu\
     -i\
     -no-fixed-num-lines\
     -p "Are You Sure? : "\
@@ -37,7 +37,7 @@ rofi -dmenu\
 
 # Display Help
 show_msg() {
-	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
+  rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
 }
 
 # Variable passed to rofi
@@ -45,38 +45,38 @@ options="$shutdown\n$reboot\n$logout\n$lock"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
 case $chosen in
-    $shutdown)
-      ans=$(rdialog &)
-      if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl poweroff
-      elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-      else
-          show_msg
-      fi
-    ;;
-    $reboot)
-      ans=$(rdialog &)
-      if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl reboot
-      elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-      else
+  $shutdown)
+    ans=$(rdialog &)
+    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+      systemctl poweroff
+    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+      exit
+    else
         show_msg
-      fi
-    ;;
-    $lock)
-      betterlockscreen --lock
-    ;;
-    $logout)
-      ans=$(rdialog &)
-      if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        bspc quit
-      elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-      else
-        show_msg
-      fi
-    ;;
+    fi
+  ;;
+  $reboot)
+    ans=$(rdialog &)
+    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+      systemctl reboot
+    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+      exit
+    else
+      show_msg
+    fi
+  ;;
+  $lock)
+    betterlockscreen --lock
+  ;;
+  $logout)
+    ans=$(rdialog &)
+    if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+      bspc quit
+    elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+      exit
+    else
+      show_msg
+    fi
+  ;;
 esac
 
