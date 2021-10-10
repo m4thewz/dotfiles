@@ -16,7 +16,6 @@ window {
     transparency:                   "real";
     background-color:               #282a36;
     text-color:                     #f8f8f2;
-    border-radius:                  6px;
     width:                          600px;
     location:                       center;
     anchor:                         center;
@@ -27,14 +26,14 @@ window {
 prompt {
     enabled: 						true;
 	padding: 						4px 4px 6px 6px;
-	background-color: 				#81A1C1ff;
+	background-color: 				@BGA;
 	text-color: 					#f8f8f2;
 }
 
 textbox-prompt-colon {
 	expand: 						false;
 	str: 							"";
-    background-color:               #81A1C1ff;
+    background-color:               @BGA;
     text-color:                     @IMG;
     padding:                        4px 10px 0px 15px;
 	font:							"Iosevka Nerd Font 10";
@@ -43,7 +42,7 @@ textbox-prompt-colon {
 inputbar {
 	children: 						[ textbox-prompt-colon, entry ];
     spacing:                        0;
-    background-color:               #81A1C1ff;
+    background-color:               @BGA;
     text-color:                     #f8f8f2;
     expand:                         false;
     border:                  		0px 0px 0px 0px;
@@ -56,10 +55,11 @@ inputbar {
 
 
 entry {
-    background-color:               #81A1C1ff;
+    background-color:               @BGA;
+    text-color:                     #f8f8f2;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search Applications";
+    placeholder:                    "Procure por aplicativos";
     blink:                          true;
     padding:                        4px 0px 0px 0px;
 }
@@ -85,6 +85,7 @@ mainbox {
     children:                       [ inputbar, listview ];
     spacing:                       	10px;
     padding:                        10px;
+    border-radius:                  8.5px;
     border: 2px;
     border-color: #ff79c6;
 }
@@ -124,7 +125,7 @@ element alternate.urgent {
 
 element normal.active,
 element alternate.active {
-    background-color:               #81A1C1ff;
+    background-color:               @BGA;
     text-color:                     #f8f8f2;
 }
 
@@ -143,6 +144,6 @@ element selected.urgent {
 }
 
 element selected.active {
-    background-color:               #81A1C1ff;
+    background-color:               @BGA;
     color:                          #f8f8f2;
 }

@@ -1,22 +1,9 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-
-# Available Styles
-# >> Created and tested on : rofi 1.6.0-1
-#
-# Column_circle     Column_square     Column_rounded     Column_alt
-# Card_circle     	Card_square       Card_rounded       Card_alt
-# Dock_circle     	Dock_square       Dock_rounded       Dock_alt
-# Drop_circle     	Drop_square       Drop_rounded       Drop_alt
-# Full_circle     	Full_square       Full_rounded       Full_alt
-# Row_circle      	Row_square        Row_rounded        Row_alt
-
 ## Default
 rofi_command="rofi -theme $HOME/.config/rofi/powermenu/config.rasi"
 
-uptime=$(uptime -p | sed -e 's/up //g')
+uptime=$(uptime -p | sed -e 's/up //g' | sed -e 's/ur/ra/g' | sed -e 's/te/to/g')
 
 # Options
 ddir="$HOME"/.config/rofi/dialogs
@@ -25,25 +12,26 @@ shutdown=""
 reboot=""
 logout=""
 lock=""
+cancel="窱"
 
 # Ask for confirmation
 rdialog () {
   rofi -dmenu\
     -i\
     -no-fixed-num-lines\
-    -p "Are You Sure? : "\
+    -p "Você tem certeza? : "\
     -theme "$ddir/confirm.rasi"
 }
 
 # Display Help
 show_msg() {
-  rofi -theme "$ddir/askpass.rasi" -e "Opções válidas: Sim / Não / y / n"
+  rofi -theme "$ddir/askpass.rasi" -e "Opções válidas: Sim / Não / Yes / No"
 }
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$logout\n$lock"
+options="$shutdown\n$reboot\n$logout\n$lock\n$cancel"
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "Uptime - $uptime" -dmenu -selected-row 0)"
 case $chosen in
   $shutdown)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
@@ -57,9 +45,9 @@ case $chosen in
   ;;
   $reboot)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
-    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]]; then
+    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]] || [[ $ans == "yes" ]]; then
       systemctl reboot
-    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]]; then
+    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]] || [[ $ans == "no" ]]; then
       exit
     else
       show_msg
@@ -70,13 +58,16 @@ case $chosen in
   ;;
   $logout)
     ans=$(rdialog | tr '[:upper:]' '[:lower:]')
-    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]]; then
+    if [[ $ans == "sim" ]] || [[ $ans == "s" ]] || [[ $ans == "y" ]] || [[ $ans == "yes" ]]; then
       bspc quit
-    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]]; then
+    elif [[ $ans == "nao" ]] || [[ $ans == "não" ]] || [[ $ans == "n" ]] || [[ $ans == "no" ]]; then
       exit
     else
       show_msg
     fi
+  ;;
+  $cancel)
+    exit
   ;;
 esac
 
