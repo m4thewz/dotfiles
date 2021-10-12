@@ -39,7 +39,7 @@ M.misc = function()
 
       -- don't yank text on delete ( dd )
       if not nvChad_options.copy_del then
-         map({ "n", "v" }, "dd", '"_dd')
+         map({ "n", "v" }, "d", '"_d')
       end
 
       -- navigation within insert mode
@@ -167,14 +167,6 @@ M.telescope_media = function()
    local m = plugin_maps.telescope.telescope_media
 
    map("n", m.media_files, ":Telescope media_files <CR>")
-end
-
-M.truezen = function()
-   local m = plugin_maps.truezen
-
-   map("n", m.ataraxis_mode, ":TZAtaraxis <CR>")
-   map("n", m.focus_mode, ":TZFocus <CR>")
-   map("n", m.minimalistic_mode, ":TZMinimalist <CR>")
 end
 
 return M

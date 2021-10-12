@@ -111,17 +111,6 @@ return packer.startup(function()
       end,
    }
 
-   -- smooth scroll
-   use {
-      "karb94/neoscroll.nvim",
-      disable = not status.neoscroll,
-      opt = true,
-      config = override_req("neoscroll", "(plugins.configs.others).neoscroll()"),
-      setup = function()
-         require("core.utils").packer_lazy_load "neoscroll.nvim"
-      end,
-   }
-
    -- lsp stuff
 
    use {
@@ -131,7 +120,7 @@ return packer.startup(function()
          require("core.utils").packer_lazy_load "nvim-lspconfig"
          -- reload the current file so lsp actually starts for it
          vim.defer_fn(function()
-            vim.cmd "silent! e %"
+            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
          end, 0)
       end,
       config = override_req("lspconfig", "plugins.configs.lspconfig"),
@@ -150,16 +139,6 @@ return packer.startup(function()
       opt = true,
       setup = function()
          require("core.utils").packer_lazy_load "vim-matchup"
-      end,
-   }
-
-   -- load autosave only if its globally enabled
-   use {
-      disable = not status.autosave,
-      "Pocco81/AutoSave.nvim",
-      config = override_req("autosave", "(plugins.configs.others).autosave()"),
-      cond = function()
-         return require("core.utils").load_config().plugins.options.autosave == true
       end,
    }
 
@@ -230,15 +209,14 @@ return packer.startup(function()
       config = override_req("nvim_autopairs", "(plugins.configs.others).autopairs()"),
    }
 
-    use {
+   use {
       "glepnir/dashboard-nvim",
-      config = function()
-        require "plugins.configs.dashboard"
-      end,
+      config = override_req("dashboard", "plugins.configs.dashboard"),
       setup = function()
-       require("core.mappings").dashboard()
+         require("core.mappings").dashboard()
       end,
    }
+
    use {
       "terrortylor/nvim-comment",
       disable = not status.comment,
@@ -252,6 +230,7 @@ return packer.startup(function()
    -- file managing , picker etc
    use {
       "kyazdani42/nvim-tree.lua",
+      disable = not status.nvimtree,
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
       config = override_req("nvim_tree", "plugins.configs.nvimtree"),
       setup = function()
@@ -281,22 +260,14 @@ return packer.startup(function()
          require("core.mappings").telescope()
       end,
    }
-
-   use {
-      "Pocco81/TrueZen.nvim",
-      disable = not status.truezen,
-      cmd = {
-         "TZAtaraxis",
-         "TZMinimalist",
-         "TZFocus",
-      },
-      config = override_req("truezen", "plugins.configs.zenmode"),
-      setup = function()
-         require("core.mappings").truezen()
-      end,
-   }
-  use{
-    "wakatime/vim-wakatime"  
+  use {
+    "andweeb/presence.nvim",
+    setup = function()
+      override_req("presence", "plugins.configs.presence")
+    end,
+  }
+  use {
+    "wakatime/vim-wakatime"
   }
    require("core.hooks").run("install_plugins", use)
 end)

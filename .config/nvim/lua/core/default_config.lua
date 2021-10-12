@@ -57,8 +57,7 @@ M.ui = {
 -- these are plugin related options
 M.plugins = {
    -- enable and disable plugins (false for disable)
-      status = {
-      autosave = false, -- to autosave files
+   status = {
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
       colorizer = false, -- color RGB, HEX, CSS, NAME color codes
@@ -68,11 +67,10 @@ M.plugins = {
       feline = true, -- statusline
       gitsigns = true, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
-      neoscroll = false, -- smooth scroll
       telescope_media = false, -- media previews within telescope finders
-      truezen = false, -- distraction free & minimalist UI mode
       vim_matchup = true, -- % operator enhancements
       cmp = true,
+      nvimtree = true,
    },
    options = {
       lspconfig = {
@@ -93,12 +91,12 @@ M.plugins = {
             "NvimTree",
             "terminal",
          },
+         -- show short statusline on small screens
+         shortline = true,
          shown = {},
          -- default, round , slant , block , arrow
          style = "default",
       },
-      autosave = false, -- autosave on changed text or insert mode leave
-      -- timeout to be used for using escape with a key combination, see mappings.plugins.better_escape
       esc_insertmode_timeout = 300,
    },
    default_plugin_config_replace = {},
@@ -193,12 +191,6 @@ M.mappings.plugins = {
       telescope_media = {
          media_files = "<leader>fp",
       },
-   },
-   -- distraction free & minimalist UI mode
-   truezen = {
-      ataraxis_mode = "<leader>zz", -- center
-      focus_mode = "<leader>zf",
-      minimalistic_mode = "<leader>zm", -- as it is
    },
 }
 
