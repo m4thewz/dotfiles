@@ -36,11 +36,20 @@ require('packer').startup(function()
       require 'plugins.configs.gitsigns'
     end
   }
+  
+  use {
+    "kyazdani42/nvim-web-devicons",
+    after = "nvim-base16.lua",
+    config = function()
+      require 'plugins.configs.icons'
+    end,
+  }
+
   -- Tree explorer
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
-    requires = "kyazdani42/nvim-web-devicons",
+    after = "kyazdani42/nvim-web-devicons",
     config = function()
       require 'plugins.configs.tree'
     end
