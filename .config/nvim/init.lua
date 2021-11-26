@@ -1,5 +1,6 @@
-local ok, err = pcall(require, "core")
+local ok, err = pcall(require, "src")
 
 if not ok then
-   error("Error loading core" .. "\n\n" .. err)
+  error("A error ocurred in loading configuration: \n\n" .. err)
 end
+

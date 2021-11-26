@@ -1,14 +1,20 @@
-local present, ts_config = pcall(require, "nvim-treesitter.configs")
-if not present then
-   return
+local ok, ts = pcall(require, "nvim-treesitter.configs")
+
+if not ok then
+  return
 end
 
-ts_config.setup {
-   ensure_installed = {
-      "lua",
+ts.setup {
+  ensure_installed = {
+    "javascript",
+    "lua",
+    "css",
+    "scss",
+    "html",
+    "vue"
    },
    highlight = {
-      enable = true,
-      use_languagetree = true,
+    enable = true,
+    use_languagetree = true,
    },
 }
