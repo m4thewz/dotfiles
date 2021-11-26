@@ -22,6 +22,6 @@ setxkbmap -model abnt2 -layout br &
 $HOME/.config/polybar/launch.sh &
 
 xrdb ${HOME}/.Xresources
-$HOME/.fehbg &
+feh --no-fehbg --bg-scale "$HOME"/Imagens/wallpapper.png &
 
 picom &
