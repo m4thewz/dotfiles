@@ -39,7 +39,6 @@ require('packer').startup(function()
   
   use {
     "kyazdani42/nvim-web-devicons",
-    after = "nvim-base16.lua",
     config = function()
       require 'plugins.configs.icons'
     end,
@@ -49,7 +48,7 @@ require('packer').startup(function()
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
-    after = "kyazdani42/nvim-web-devicons",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require 'plugins.configs.tree'
     end
@@ -64,6 +63,7 @@ require('packer').startup(function()
   -- Openned files
   use {
     'akinsho/bufferline.nvim',
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require 'plugins.configs.bufferline'
     end
@@ -71,6 +71,7 @@ require('packer').startup(function()
   -- Statusline
   use {
     "famiu/feline.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require 'plugins.configs.feline'
     end,
