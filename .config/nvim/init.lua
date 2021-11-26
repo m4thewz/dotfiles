@@ -1,6 +1,4 @@
-local ok, err = pcall(require, "src")
+require('src.options')
+require('src.mappings')
 
-if not ok then
-  error("A error ocurred in loading configuration: \n\n" .. err)
-end
-
+require 'plugins'
