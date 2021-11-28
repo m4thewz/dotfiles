@@ -42,7 +42,8 @@ M.apply = function()
   fg_bg("DiffChange", colors.grey_fg, "none")
   fg_bg("DiffModified", colors.nord_blue, "none")
 
-
+  -- Remove ~
+  fg("EndOfBuffer", colors.black)
 end
 
 return M
