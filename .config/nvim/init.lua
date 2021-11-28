@@ -1,4 +1,4 @@
-require('src.options')
-require('src.mappings')
+require('options')
+require('mappings')
 
 require 'plugins'

@@ -25,7 +25,7 @@ require('packer').startup(function()
       base16(base16.themes("chadracula"), true)
       
       -- Load highligths
-      require 'src.highligths'.apply()
+      require 'highligths'.apply()
     end,
   }
   -- Git utils 
