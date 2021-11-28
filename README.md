@@ -1,36 +1,13 @@
-# Dotfiles
-
-My personal dotfiles of Openbox and Arch Linux
-
-## Installation
-
-Clone this repository and copy to your user home
-
-```bash
-git clone https://github.com/matheuuus/dotfiles $HOME
-```
-
-## Detailed Environment
+## `My dotfiles` - Just for backup
 
 Components | Packages / Programs
 --- | --- |
-**Window Manager**        | `openbox`
-**AppLauncher**           | `rofi`
-**Bar**                   | `polybar`
-**Notification Daemon**   | `dunst`
-**Wallpaper Setter**      | `nitrogen`
-**Compositor**            | `picom`
-**Screenshot App**        | `flameshot`
-**Archive Manager**       | `thunar`
-**Text Editor**           | `sublime-text`
-**CLI System Monitor**    | `htop`
-**CLI System Information**| `neofetch`
-**CLI Shell**             | `zsh`
+**Distro**                | [`Arch Linux`](https://archlinux.org)
+**Window Manager**        | [`BSPWM`](https://github.com/baskerville/bspwm)
+**App Launcher**          | [`rofi`](https://github.com/davatorium/rofi)
+**Bar**                   | [`polybar`](https://polybar.github.io/)
+**Compositor**            | [`picom`](https://github.com/yshui/picom)
+**Text Editor**           | [`Neovim`](https://neovim.io/)
+**CLI System Monitor**    | [`gotop`](https://github.com/cjbassi/gotop)
+**CLI Shell**             | [`zsh`](https://www.zsh.org/)
 
-![screenshot](./screenshot.png)
-
-## Contributing
-Pull requests are welcome. 
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
