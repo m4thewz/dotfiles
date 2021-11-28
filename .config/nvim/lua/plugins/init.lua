@@ -68,6 +68,8 @@ require('packer').startup(function()
       require 'plugins.configs.bufferline'
     end
   }
+  -- File formatter
+  use 'prettier/vim-prettier'
   -- Statusline
   use {
     "famiu/feline.nvim",
