@@ -57,5 +57,5 @@ map("n", "<leader>e", ":NvimTreeFocus <CR>")
 map("n", "<TAB>", ":BufferLineCycleNext <CR>")
 map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
 
-map({"n", "i"}, "<leader>f", ":PrettierAsync <CR>")
+map("n", "<leader>f", ":PrettierAsync <CR>")
 
