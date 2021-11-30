@@ -15,20 +15,18 @@ cmd 'packadd packer.nvim'
 local use = require('packer').use
 
 require('packer').startup(function()
-  -- The plugin manager
   use {'wbthomason/packer.nvim', opt = true}
-  -- Colorscheme
+  
   use {
     "NvChad/nvim-base16.lua",
     config = function()
       local base16 = require 'base16'
       base16(base16.themes("chadracula"), true)
       
-      -- Load highligths
       require 'highligths'.apply()
     end,
   }
-  -- Git utils 
+  
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -44,7 +42,6 @@ require('packer').startup(function()
     end,
   }
 
-  -- Tree explorer
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
@@ -53,14 +50,14 @@ require('packer').startup(function()
       require 'plugins.configs.tree'
     end
   }
-  -- Treesitter
+  
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require 'plugins.configs.treesitter'
     end
   }
-  -- Openned files
+  
   use {
     'akinsho/bufferline.nvim',
     requires = "kyazdani42/nvim-web-devicons",
@@ -68,9 +65,7 @@ require('packer').startup(function()
       require 'plugins.configs.bufferline'
     end
   }
-  -- File formatter
-  use 'prettier/vim-prettier'
-  -- Statusline
+  
   use {
     "famiu/feline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -78,7 +73,7 @@ require('packer').startup(function()
       require 'plugins.configs.feline'
     end,
   }
-  -- Lines in indent
+  
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
@@ -86,7 +81,8 @@ require('packer').startup(function()
       require 'plugins.configs.blankline'
     end
   }
-  -- Code time counter
+  
+  use 'prettier/vim-prettier'
   use 'wakatime/vim-wakatime'
 end)
 
