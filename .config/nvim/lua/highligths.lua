@@ -42,6 +42,12 @@ M.apply = function()
   fg_bg("DiffChange", colors.grey_fg, "none")
   fg_bg("DiffModified", colors.nord_blue, "none")
 
+  -- Dashboard
+  fg("DashboardCenter", colors.grey_fg)
+  fg("DashboardFooter", colors.grey_fg)
+  fg("DashboardHeader", colors.grey_fg)
+  fg("DashboardShortcut", colors.grey_fg)
+
   -- Remove ~
   fg("EndOfBuffer", colors.black)
 end

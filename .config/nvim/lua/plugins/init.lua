@@ -36,6 +36,11 @@ require('packer').startup(function()
   }
   
   use {
+    'glepnir/dashboard-nvim',
+    config = [[require ('plugins.configs.dashboard')]]
+  }
+
+  use {
     'akinsho/bufferline.nvim',
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
@@ -51,7 +56,6 @@ require('packer').startup(function()
     end,
   }
   
-
   use {
     "NvChad/nvim-base16.lua",
     config = function()
