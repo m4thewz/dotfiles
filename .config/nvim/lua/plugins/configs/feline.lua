@@ -57,7 +57,7 @@ components.active[1][2] = {
     local extension = vim.fn.expand "%:e"
     local icon = require("nvim-web-devicons").get_icon(filename, extension)
     if icon == nil then
-      icon = " "
+      icon = "  "
       return icon
     end
     return " " .. icon .. " " .. filename .. " "
@@ -159,31 +159,6 @@ components.active[3][7] = {
 }
 
 components.active[3][8] = {
-  provider = function()
-    local current_line = vim.fn.line "."
-    local total_line = vim.fn.line "$"
-
-    if current_line == 1 then
-      return " Top "
-    elseif current_line == total_line then
-      return " End "
-    end
-    local result, _ = math.modf((current_line / total_line) * 100)
-    return " " .. result .. "%% "
-  end,
-
-  hl = { fg = colors.green, bg = colors.one_bg },
-
-  right_sep = { 
-    str = style.right,
-    hl = {
-      fg = colors.one_bg,
-      bg = colors.lightbg2,
-    } 
-  },
-}
-
-components.active[3][9] = {
   provider = "position",
   hl = { fg = colors.green, bg = colors.lightbg2 },
 }
