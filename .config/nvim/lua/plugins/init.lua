@@ -21,18 +21,14 @@ require('packer').startup(function()
   
   use {
     "kyazdani42/nvim-web-devicons",
-    config = function()
-      require 'plugins.configs.icons'
-    end,
+    config = [[require ('plugins.configs.icons')]]
   }
   
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require 'plugins.configs.tree'
-    end
+    config = [[require ('plugins.configs.tree')]]
   }
   
   use {
@@ -43,17 +39,13 @@ require('packer').startup(function()
   use {
     'akinsho/bufferline.nvim',
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require 'plugins.configs.bufferline'
-    end
+    config = [[require ('plugins.configs.bufferline')]]
   }
   
   use {
     "famiu/feline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require 'plugins.configs.feline'
-    end,
+    config = [[require ('plugins.configs.feline')]]
   }
   
   use {
@@ -68,25 +60,19 @@ require('packer').startup(function()
   
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require 'plugins.configs.treesitter'
-    end
+    config = [[require ('plugins.configs.treesitter')]]
   }
   
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require 'plugins.configs.gitsigns'
-    end
+    config = [[require ('plugins.configs.gitsigns')]]
   }
   
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = function()
-      require 'plugins.configs.blankline'
-    end
+    config = [[require ('plugins.configs.blankline')]]
   }
   
   -- Utils
