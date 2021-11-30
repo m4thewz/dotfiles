@@ -17,6 +17,23 @@ local use = require('packer').use
 require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('gitsigns').setup {
+        sign_priority = 1,
+        signs = {
+          add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+          change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+          changedelete = { hl = "DiffChange", text = "~", numhl = "GitSignsChangeNr" },
+          delete = { hl = "DiffDelete", text = "_", numhl = "GitSignsDeleteNr" },
+          topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+        },
+      }
+    end
+  }
+
   -- Interface
   
   use {
@@ -61,13 +78,7 @@ require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     config = [[require ('plugins.configs.treesitter')]]
-  }
-  
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = [[require ('plugins.configs.gitsigns')]]
-  }
+  } 
   
   use {
     "lukas-reineke/indent-blankline.nvim",
@@ -76,7 +87,12 @@ require('packer').startup(function()
   }
   
   -- Utils
-
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = 'nvim-telescope/telescope-media-files.nvim',
+    config = [[require ('plugins.configs.telescope')]],
+  }
+  
   use 'prettier/vim-prettier'
   use 'wakatime/vim-wakatime'
 end)

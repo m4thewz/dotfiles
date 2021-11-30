@@ -48,6 +48,13 @@ M.apply = function()
   fg("DashboardHeader", colors.grey_fg)
   fg("DashboardShortcut", colors.grey_fg)
 
+  -- Telescope
+ 
+  fg("TelescopeBorder", colors.purple)
+  fg("TelescopePreviewTitle", colors.green)
+  fg("TelescopePromptTitle", colors.blue)
+  fg("TelescopeResultsTitle", colors.red)
+
   -- Remove ~
   fg("EndOfBuffer", colors.black)
 end

@@ -45,6 +45,7 @@ end
 
 map("n", "<Esc>", ":noh <CR>")
 map("n", "<C-s>", ":w <CR>")
+map("n", "q", ":q <CR>")
 
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
@@ -52,10 +53,24 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-j>", "<C-w>j")
 
 map("n", "<C-n>", ":NvimTreeToggle <CR>")
-map("n", "<leader>e", ":NvimTreeFocus <CR>")
 
 map("n", "<TAB>", ":BufferLineCycleNext <CR>")
 map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
 
 map("n", "<leader>f", ":PrettierAsync <CR>")
+
+map("n", "<leader>fb", ":Telescope buffers <CR>")
+map("n", "<leader>ff", ":Telescope find_files <CR>")
+map("n", "<leader>cm", ":Telescope git_commits <CR>")
+map("n", "<leader>gt", ":Telescope git_status <CR>")
+map("n", "<leader>fh", ":Telescope help_tags <CR>")
+map("n", "<leader>fw", ":Telescope live_grep <CR>")
+map("n", "<leader>fp", ":Telescope media_files <CR>")
+map("n", "<leader>fo", ":Telescope oldfiles <CR>")
+
+map("n", "<leader>bm", ":DashboardJumpMarks <CR>")
+map("n", "<leader>fn", ":DashboardNewFile <CR>")
+map("n", "<leader>db", ":Dashboard <CR>")
+map("n", "<leader>sl", ":SessionLoad <CR>")
+map("n", "<leader>ss", ":SessionSave <CR>")
 

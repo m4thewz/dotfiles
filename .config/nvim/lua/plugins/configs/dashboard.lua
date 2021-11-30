@@ -1,18 +1,30 @@
 local g = vim.g
 
-g.dashboard_preview_command = 'cat'
-g.dashboard_preview_pipeline = 'lolcat'
-g.dashboard_preview_file = '~/.config/nvim/neovim.cat'
-
-g.dashboard_preview_file_height = 20
-g.dashboard_preview_file_width = 40
-g.dashboard_disable_at_vimenter = 0
-g.dashboard_disable_statusline = 1
-
-g.dashboard_custom_section = {
-   a = { description = { "  " }, command = " " },
+g.dashboard_custom_header = {
+  '',
+  '',
+  '',
+  '        ▀████▀▄▄              ▄█',
+  '          █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█',
+  '  ▄        █          ▀▀▀▀▄  ▄▀ ',
+  ' ▄▀ ▀▄      ▀▄              ▀▄▀ ',
+  '▄▀    █     █▀   ▄█▀▄      ▄█   ',
+  '▀▄     ▀▄  █     ▀██▀     ██▄█  ',
+  ' ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █ ',
+  '  █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀ ',
+  ' █   █  █      ▄▄           ▄▀  ',  
 }
 
-g.dashboard_custom_footer = {
-   "   ",
+g.dashboard_default_executive = 'telescope'
+
+g.dashboard_disable_at_vimenter = 0
+g.dashboard_disable_statusline = 0
+
+g.dashboard_custom_section = {
+   a = { description = { "  Find File                 SPC F F" }, command = "Telescope find_files" },
+   b = { description = { "  Recents                   SPC F O" }, command = "Telescope oldfiles" },
+   c = { description = { "  Find Word                 SPC F W" }, command = "Telescope live_grep" },
+   d = { description = { "洛 New File                  SPC F N" }, command = "DashboardNewFile" },
+   e = { description = { "  Bookmarks                 SPC B M" }, command = "DashboardJumpMarks" },
+   f = { description = { "  Load Last Session         SPC S K" }, command = "SessionLoad" },
 }
