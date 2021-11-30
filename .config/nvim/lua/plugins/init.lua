@@ -16,24 +16,8 @@ local use = require('packer').use
 
 require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
-  
-  use {
-    "NvChad/nvim-base16.lua",
-    config = function()
-      local base16 = require 'base16'
-      base16(base16.themes("chadracula"), true)
-      
-      require 'highligths'.apply()
-    end,
-  }
-  
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require 'plugins.configs.gitsigns'
-    end
-  }
+
+  -- Interface
   
   use {
     "kyazdani42/nvim-web-devicons",
@@ -41,20 +25,13 @@ require('packer').startup(function()
       require 'plugins.configs.icons'
     end,
   }
-
+  
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require 'plugins.configs.tree'
-    end
-  }
-  
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require 'plugins.configs.treesitter'
     end
   }
   
@@ -74,6 +51,32 @@ require('packer').startup(function()
     end,
   }
   
+
+  use {
+    "NvChad/nvim-base16.lua",
+    config = function()
+      local base16 = require 'base16'
+      base16(base16.themes("chadracula"), true)
+      
+      require 'highligths'.apply()
+    end,
+  }
+  
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require 'plugins.configs.treesitter'
+    end
+  }
+  
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require 'plugins.configs.gitsigns'
+    end
+  }
+  
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
@@ -82,6 +85,8 @@ require('packer').startup(function()
     end
   }
   
+  -- Utils
+
   use 'prettier/vim-prettier'
   use 'wakatime/vim-wakatime'
 end)
