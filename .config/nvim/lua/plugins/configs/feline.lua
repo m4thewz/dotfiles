@@ -159,6 +159,13 @@ components.active[3][7] = {
 }
 
 components.active[3][8] = {
+  provider = " ",
+  enabled = function()
+    return vim.fn.line "." >= 100 
+  end
+}
+
+components.active[3][9] = {
   provider = "position",
   hl = { fg = colors.green, bg = colors.lightbg2 },
 }
