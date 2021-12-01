@@ -5,6 +5,8 @@ o.termguicolors = true
 
 o.clipboard = "unnamedplus"
 
+o.completeopt = 'menuone'
+
 o.cursorline = true
 o.number = true
 g.mapleader = " "
