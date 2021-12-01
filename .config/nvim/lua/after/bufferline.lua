@@ -1,21 +1,15 @@
-local present, bufferline = pcall(require, "bufferline")
-if not present then
-   return
-end
-
-local colors = require('hl_themes.chadracula')
-
+local colors = require 'highligths'.get
 vim.cmd 'hi NvimTreeBufferLabel gui=bold guifg=#F8F8F2 guibg=#232531'
 
-bufferline.setup {
+require("bufferline").setup {
   options = {
-    offsets = { 
+    offsets = {
       {
         filetype = "NvimTree",
         text = "Explorer",
         highlight = "NvimTreeBufferLabel",
         padding = 1,
-      } 
+      }
     },
     buffer_close_icon = "",
     modified_icon = "",

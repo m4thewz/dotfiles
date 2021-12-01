@@ -1,4 +1,4 @@
-local colors = require "hl_themes.chadracula"
+local colors = require 'highligths'.get
 
 local modes = {
   ["n"] = { "NORMAL", colors.red },

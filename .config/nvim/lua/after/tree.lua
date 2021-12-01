@@ -1,22 +1,7 @@
-local ok, tree = pcall(require, "nvim-tree")
 local g = vim.g
 
-if not ok then
-  return
-end
-
--- Init tree
-
-tree.setup {
-   diagnostics = {
-    enable = true,
-    icons = {
-       hint    = "",
-       info    = "",
-       warning = "",
-       error   = "",
-    },
-   },
+require("nvim-tree").setup {
+   diagnostics = { enable = false },
    filters = {
     dotfiles = false,
     custom = { ".git", "node_modules", ".cache" }
@@ -69,7 +54,7 @@ g.nvim_tree_icons = {
       default      = "",
       empty        = "",
       empty_open   = "",
-      open         = "",
+      open         = "",
       symlink      = "",
       symlink_open = "",
    },

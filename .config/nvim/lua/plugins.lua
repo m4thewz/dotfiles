@@ -12,40 +12,32 @@ end
 
 -- Configure packer
 cmd 'packadd packer.nvim'
-local use = require('packer').use
 
-require('packer').startup(function()
+require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- Interface
 
   use {
     "kyazdani42/nvim-web-devicons",
-    config = [[require ('plugins.configs.icons')]]
+    config = [[ require 'after.icons' ]]
   }
-
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
     requires = "kyazdani42/nvim-web-devicons",
-    config = [[require ('plugins.configs.tree')]]
-  }
-
-  use {
-    'glepnir/dashboard-nvim',
-    config = [[require ('plugins.configs.dashboard')]]
+    config = [[ require 'after.tree' ]]
   }
 
   use {
     'akinsho/bufferline.nvim',
     requires = "kyazdani42/nvim-web-devicons",
-    config = [[require ('plugins.configs.bufferline')]]
+    config = [[ require 'after.bufferline' ]]
   }
-
   use {
     "famiu/feline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = [[require ('plugins.configs.feline')]]
+    config = [[ require 'after.feline' ]]
   }
 
   use {
@@ -57,25 +49,53 @@ require('packer').startup(function()
       require 'highligths'.apply()
     end,
   }
-
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = [[require ('plugins.configs.treesitter')]]
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = { "javascript", "lua", "css", "scss", "html", "vue" },
+        highlight = {
+          enable = true,
+          use_languagetree = true,
+        },
+      }
+    end,
   }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = [[require ('plugins.configs.blankline')]]
+    config = function()
+      require("indent_blankline").setup {
+        indentLine_enabled = 1,
+        char = "▏",
+        filetype_exclude = {
+           "help",
+           "terminal",
+           "dashboard",
+           "packer",
+           "lspinfo",
+           "TelescopePrompt",
+           "TelescopeResults",
+        },
+        buftype_exclude = { "terminal" },
+        show_trailing_blankline_indent = false,
+        show_first_indent_level = false,
+      }
+    end,
   }
 
   -- LSP
 
   use {
+    'L3MON4D3/LuaSnip',
+    requires = 'rafamadriz/friendly-snippets'
+  }
+
+  use {
     'neovim/nvim-lspconfig',
-    config = [[ require('plugins.configs.lspconfig') ]],
+    config = [[ require 'after.lspconfig' ]],
     requires = {
-      {'tami5/lspsaga.nvim', branch = 'nvim51' },
       'folke/lsp-colors.nvim',
       'onsails/lspkind-nvim',
     }
@@ -83,25 +103,16 @@ require('packer').startup(function()
 
   use {
     'hrsh7th/nvim-cmp',
-    config = [[ require 'plugins.configs.cmp' ]],
+    config = [[ require 'after.cmp' ]],
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
     }
   }
 
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
-
   -- Utils
 
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = 'nvim-telescope/telescope-media-files.nvim',
-    config = [[require ('plugins.configs.telescope')]],
-  }
-
-  use {
+   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
@@ -119,11 +130,7 @@ require('packer').startup(function()
   }
 
   use 'dstein64/vim-startuptime'
-  use 'prettier/vim-prettier'
-  use {
-    'wakatime/vim-wakatime',
-    event = "BufRead"
-  }
+--  use 'wakatime/vim-wakatime'
 end)
 
 -- Install plugins if packer was not installed
