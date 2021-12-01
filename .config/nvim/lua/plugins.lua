@@ -128,9 +128,6 @@ require('packer').startup(function(use)
       }
     end
   }
-
-  use 'dstein64/vim-startuptime'
---  use 'wakatime/vim-wakatime'
 end)
 
 -- Install plugins if packer was not installed
