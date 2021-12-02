@@ -77,6 +77,22 @@ M.apply = function()
   -- Remove ~
   fg("EndOfBuffer", colors.black)
   fg("NvimTreeEndOfBuffer", colors.darker_black)
+
+  -- LSP
+
+  -- Errors
+  fg("LspDiagnosticsSignError", colors.red)
+  fg("LspDiagnosticsSignWarning", colors.yellow)
+  fg("LspDiagnosticsVirtualTextError", colors.red)
+  fg("LspDiagnosticsVirtualTextWarning", colors.yellow)
+
+  -- Info
+  fg("LspDiagnosticsSignInformation", colors.green)
+  fg("LspDiagnosticsVirtualTextInformation", colors.green)
+
+  -- Hints
+  fg("LspDiagnosticsSignHint", colors.purple)
+  fg("LspDiagnosticsVirtualTextHint", colors.purple)
 end
 
 return M

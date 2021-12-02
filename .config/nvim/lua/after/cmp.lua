@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+local kinds = vim.lsp.protocol.CompletionItemKind
 
 local source_mapping = {
   buffer = "[Buffer]",
@@ -8,7 +9,35 @@ local source_mapping = {
   path = "[Path]",
 }
 
+local icons = {
+  Class = " ",
+  Color = " ",
+  Constant = " ",
+  Constructor = " ",
+  Enum = "了 ",
+  EnumMember = " ",
+  Field = " ",
+  File = " ",
+  Folder = " ",
+  Function = " ",
+  Interface = "ﰮ ",
+  Keyword = " ",
+  Method = "ƒ ",
+  Module = " ",
+  Property = " ",
+  Snippet = "﬌ ",
+  Struct = " ",
+  Text = " ",
+  Unit = " ",
+  Value = " ",
+  Variable = " ",
+}
+
 lspkind.init({ with_text = true })
+
+for i, kind in ipairs(kinds) do
+  kinds[i] = icons[kind] or kind
+end
 
 cmp.setup({
   snippet = {

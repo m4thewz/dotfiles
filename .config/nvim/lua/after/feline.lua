@@ -1,4 +1,5 @@
 local colors = require 'highligths'.get
+local lsp = require "feline.providers.lsp"
 
 local modes = {
   ["n"] = { "NORMAL", colors.red },
@@ -21,12 +22,12 @@ local modes = {
   ["rm"] = { "MORE", colors.teal },
   ["r?"] = { "CONFIRM", colors.teal },
   ["!"] = { "SHELL", colors.green },
-} 
+}
 
 local style = {
   left = "",
   right = " ",
-} 
+}
 
 local components = {
   active = {},
@@ -42,12 +43,12 @@ components.active[1][1] = {
 
   hl = { fg = colors.white, bg = colors.nord_blue },
 
-  right_sep = { 
+  right_sep = {
     str = style.right,
     hl = {
       fg = colors.nord_blue,
       bg = colors.lightbg,
-    } 
+    }
   },
 }
 
@@ -99,6 +100,42 @@ components.active[1][6] = {
   icon = "  ",
 }
 
+components.active[1][7] = {
+  provider = "diagnostic_errors",
+  enabled = function()
+    return lsp.diagnostics_exist "Error"
+  end,
+
+  hl = { fg = colors.red },
+  icon = "  ",
+}
+
+components.active[1][8] = {
+  provider = "diagnostic_warnings",
+  enabled = function()
+    return lsp.diagnostics_exist "Warning"
+  end,
+  hl = { fg = colors.yellow },
+  icon = "  ",
+}
+
+components.active[1][9] = {
+  provider = "diagnostic_hints",
+  enabled = function()
+    return lsp.diagnostics_exist "Hint"
+  end,
+  hl = { fg = colors.grey_fg2 },
+  icon = "  ",
+}
+
+components.active[1][10] = {
+  provider = "diagnostic_info",
+  enabled = function()
+    return lsp.diagnostics_exist "Information"
+  end,
+  hl = { fg = colors.green },
+  icon = "  ",
+}
 components.active[3][1] = {
   provider = function()
     if next(vim.lsp.buf_get_clients()) ~= nil then
@@ -161,7 +198,7 @@ components.active[3][7] = {
 components.active[3][8] = {
   provider = " ",
   enabled = function()
-    return vim.fn.line "." >= 100 
+    return vim.fn.line "." >= 100
   end
 }
 

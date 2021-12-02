@@ -96,6 +96,7 @@ require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     config = [[ require 'after.lspconfig' ]],
     requires = {
+      { 'tami5/lspsaga.nvim', branch = 'nvim51' },
       'folke/lsp-colors.nvim',
       'onsails/lspkind-nvim',
     }
@@ -128,6 +129,17 @@ require('packer').startup(function(use)
       }
     end
   }
+
+  use {
+    'terrortylor/nvim-comment',
+    config = [[ require('nvim_comment').setup() ]]
+  }
+
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = [[ require('colorizer').setup() ]]
+  }
+
 end)
 
 -- Install plugins if packer was not installed

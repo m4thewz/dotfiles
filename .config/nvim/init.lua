@@ -2,14 +2,20 @@ local g, o, api, cmd = vim.g, vim.o, vim.api, vim.api.nvim_command
 
 cmd 'syntax on'
 
+o.title = true
+g.mapleader = " "
+
 o.termguicolors = true
 o.clipboard = "unnamedplus"
+
 o.cursorline = true
+o.cul = true
 o.number = true
-g.mapleader = " "
+
 o.tabstop    = 2
 o.shiftwidth = 2
 o.expandtab  = true
+
 o.undofile = true
 o.updatetime = 250
 
@@ -72,6 +78,9 @@ map("n", "<leader>bm", ":DashboardJumpMarks <CR>")
 map("n", "<leader>fn", ":DashboardNewFile <CR>")
 map("n", "<leader>db", ":Dashboard <CR>")
 map("n", "<leader>sl", ":SessionLoad <CR>")
+
+map("n", "<leader>/", ":CommentToggle <CR>")
+map("v", "<leader>/", ":CommentToggle <CR>")
 
 -- Load plugins
 require 'plugins'
