@@ -45,6 +45,20 @@ M.apply = function()
   fg ("cursorlinenr", colors.white)
   fg ("LineNr", colors.grey)
 
+  -- Floating windows
+  fg("FloatBorder", colors.purple)
+  bg("NormalFloat", colors.one_bg)
+
+  -- Pmenu
+  bg("Pmenu", colors.one_bg)
+  bg("PmenuSbar", colors.one_bg2)
+  bg("PmenuSel", colors.pmenu_bg)
+  bg("PmenuThumb", colors.purple)
+  fg("CmpItemAbbr", colors.white)
+  fg("CmpItemAbbrMatch", colors.white)
+  fg("CmpItemKind", colors.white)
+  fg("CmpItemMenu", colors.white)
+
   -- Blankline
   fg("IndentBlanklineChar", colors.line)
 

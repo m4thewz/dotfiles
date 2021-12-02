@@ -72,11 +72,8 @@ require('packer').startup(function(use)
         filetype_exclude = {
            "help",
            "terminal",
-           "dashboard",
            "packer",
            "lspinfo",
-           "TelescopePrompt",
-           "TelescopeResults",
         },
         buftype_exclude = { "terminal" },
         show_trailing_blankline_indent = false,
@@ -88,17 +85,14 @@ require('packer').startup(function(use)
   -- LSP
 
   use {
-    'L3MON4D3/LuaSnip',
-    requires = 'rafamadriz/friendly-snippets'
-  }
-
-  use {
     'neovim/nvim-lspconfig',
-    config = [[ require 'after.lspconfig' ]],
+    config = [[ require 'after.lsp' ]],
     requires = {
       { 'tami5/lspsaga.nvim', branch = 'nvim51' },
       'folke/lsp-colors.nvim',
-      'onsails/lspkind-nvim',
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
+      'hrsh7th/cmp-nvim-lsp'
     }
   }
 
@@ -106,8 +100,9 @@ require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     config = [[ require 'after.cmp' ]],
     requires = {
-      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind-nvim',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path'
     }
   }
 
