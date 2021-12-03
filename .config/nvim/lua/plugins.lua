@@ -13,7 +13,20 @@ end
 -- Configure packer
 cmd 'packadd packer.nvim'
 
-require('packer').startup(function(use)
+local packer = require('packer')
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "single" }
+    end,
+    prompt_border = "single",
+  },
+  auto_clean = true,
+  compile_on_sync = true,
+}
+
+packer.startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- Interface
@@ -113,6 +126,7 @@ require('packer').startup(function(use)
    use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
+    setup = [[ require 'utils'.lazy_load('lewis6991/gitsigns.nvim') ]],
     config = function()
       require('gitsigns').setup {
         sign_priority = 5,

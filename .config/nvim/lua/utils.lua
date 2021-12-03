@@ -45,4 +45,12 @@ M.close_buf = function()
   end
 end
 
+M.lazy_load = function(plugin)
+   if plugin then
+      vim.defer_fn(function()
+         require("packer").loader(plugin)
+      end, 0)
+   end
+end
+
 return M
