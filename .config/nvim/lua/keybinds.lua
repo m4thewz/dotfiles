@@ -36,6 +36,7 @@ map("n", "<Esc>", ":noh <CR>")
 map("n", "<C-s>", ":w <CR>")
 map("n", "q", ":q <CR>")
 map("n", "<leader>cc", ":PackerSync <CR>")
+map("n", "<C-w>", ":lua require('utils').close_buf() <CR>")
 
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
@@ -46,15 +47,6 @@ map("n", "<C-n>", ":NvimTreeToggle <CR>")
 
 map("n", "<TAB>", ":BufferLineCycleNext <CR>")
 map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
-
-map("n", "<leader>ff", ":Telescope find_files <CR>")
-map("n", "<leader>fw", ":Telescope live_grep <CR>")
-map("n", "<leader>fo", ":Telescope oldfiles <CR>")
-
-map("n", "<leader>bm", ":DashboardJumpMarks <CR>")
-map("n", "<leader>fn", ":DashboardNewFile <CR>")
-map("n", "<leader>db", ":Dashboard <CR>")
-map("n", "<leader>sl", ":SessionLoad <CR>")
 
 map("n", "<leader>/", ":CommentToggle <CR>")
 map("v", "<leader>/", ":CommentToggle <CR>")
