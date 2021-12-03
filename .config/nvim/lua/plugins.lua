@@ -126,7 +126,7 @@ packer.startup(function(use)
    use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    setup = [[ require 'utils'.lazy_load('lewis6991/gitsigns.nvim') ]],
+    setup = [[ require 'utils'.lazy_load('gitsigns.nvim') ]],
     config = function()
       require('gitsigns').setup {
         sign_priority = 5,
