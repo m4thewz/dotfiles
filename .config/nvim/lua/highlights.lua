@@ -82,7 +82,6 @@ M.apply = function ()
 
   highlight("CmpItemAbbr", 'f8f8f2', nil, nil, nil)
   highlight("CmpItemAbbrMatch", 'f8f8f2', nil, nil, nil)
-  highlight("CmpItemKind", 'f8f8f2', nil, nil, nil)
   highlight("CmpItemMenu", 'f8f8f2', nil, nil, nil)
 
   highlight("CmpItemAbbrMatchFuzzy", '8BE9FD', nil, nil, nil)
@@ -95,7 +94,7 @@ M.apply = function ()
   highlight("CmpItemKindClass", '69ff94', nil, nil, nil)
   highlight("CmpItemKindInterface", '69ff94', nil, nil, nil)
   highlight("CmpItemKindValue", 'ffb86c', nil, nil, nil)
-  highlight("CmpItemKindKeyword", 'f8f8f2', nil, nil, nil)
+  highlight("CmpItemKindSnippet", 'e95678', nil, nil, nil)
   highlight("CmpItemKindSnippet", 'C586C0', nil, nil, nil)
   highlight("CmpItemKindFile", 'ffb86c', nil, nil, nil)
   highlight("CmpItemKindFolder", 'ffb86c', nil, nil, nil)
@@ -196,7 +195,7 @@ M.apply = function ()
 
   highlight("DiffAdd", 'bd93f9', 'none', nil, nil)
   highlight("DiffChange", '5a5c68', 'none', nil, nil)
-  highlight("DiffDelete", 'ffb86c', 'E95678', 'NONE', nil)
+  highlight("DiffDelete", 'E95678', 'none', nil, nil)
   highlight("DiffText", '69ff94', '3a3c4e', nil, nil)
 
   -- Git highlighting
