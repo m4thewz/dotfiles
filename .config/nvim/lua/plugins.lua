@@ -1,6 +1,6 @@
 local fn, cmd = vim.fn, vim.cmd
 
--- Install packer if it's not yet installed
+-- Install packer if it's not yet ensure_installed
 
 local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 local installed = fn.empty(fn.glob(install_path))
@@ -41,15 +41,6 @@ require('packer').startup(function(use)
   }
 
   use {
-    "NvChad/nvim-base16.lua",
-    config = function()
-      local base16 = require 'base16'
-      base16(base16.themes("chadracula"), true)
-
-      require 'highligths'.apply()
-    end,
-  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require("nvim-treesitter.configs").setup {
@@ -85,24 +76,35 @@ require('packer').startup(function(use)
   -- LSP
 
   use {
-    'neovim/nvim-lspconfig',
-    config = [[ require 'after.lsp' ]],
+    'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
+    config = [[ require 'after.cmp' ]],
     requires = {
-      { 'tami5/lspsaga.nvim', branch = 'nvim51' },
-      'folke/lsp-colors.nvim',
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-      'hrsh7th/cmp-nvim-lsp'
+      'onsails/lspkind-nvim',
+      { 'hrsh7th/cmp-buffer', event = "InsertEnter" },
+      { 'hrsh7th/cmp-path', event = "InsertEnter" },
+      {
+        'L3MON4D3/LuaSnip',
+        requires = 'rafamadriz/friendly-snippets',
+        config = function ()
+          require("luasnip.loaders.from_vscode").lazy_load({
+            paths = { vim.env.HOME .. "/.vim/plugged/friendly-snippets" },
+            include = nil,
+            exclude = {},
+          })
+        end
+      }
     }
   }
 
   use {
-    'hrsh7th/nvim-cmp',
-    config = [[ require 'after.cmp' ]],
+    'neovim/nvim-lspconfig',
+    event = "BufReadPre",
+    config = [[ require 'after.lsp' ]],
     requires = {
-      'onsails/lspkind-nvim',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path'
+      { 'tami5/lspsaga.nvim', branch = 'nvim51' },
+      'folke/lsp-colors.nvim',
+      'hrsh7th/cmp-nvim-lsp'
     }
   }
 
@@ -134,7 +136,7 @@ require('packer').startup(function(use)
     'norcalli/nvim-colorizer.lua',
     config = [[ require('colorizer').setup() ]]
   }
-
+  use 'dstein64/vim-startuptime'
 end)
 
 -- Install plugins if packer was not installed

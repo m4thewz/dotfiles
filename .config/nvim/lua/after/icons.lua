@@ -1,20 +1,20 @@
-local colors = require 'highligths'.get
+local colors = require 'highlights'.get
 
 require("nvim-web-devicons").setup {
    override = {
      css = {
          icon = "",
-         color = colors.blue,
+         color = '#2965f1',
          name = "css",
       },
      html = {
          icon = "",
-         color = colors.baby_pink,
+         color = "#DE8C92",
          name = "html",
       },
      js = {
          icon = "",
-         color = colors.sun,
+         color = "#FFFFA5",
          name = "js",
       },
       lock = {
@@ -24,17 +24,17 @@ require("nvim-web-devicons").setup {
       },
       lua = {
          icon = "",
-         color = colors.blue,
+         color = colors.purple,
          name = "lua",
       },
       ts = {
          icon = "ﯤ",
-         color = colors.teal,
+         color = "#0088cc",
          name = "ts",
       },
       vue = {
          icon = "﵂",
-         color = colors.vibrant_green,
+         color = colors.green,
          name = "vue",
       },
    },

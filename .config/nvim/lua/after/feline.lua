@@ -1,20 +1,27 @@
-local colors = require 'highligths'.get
+local colors = require 'highlights'.get
 local lsp = require "feline.providers.lsp"
+
+colors.one_bg = "#373844"
+colors.statusline_bg = "#2b2d39"
+colors.lightbg = "#343642"
+colors.lightbg2 = "#2f313d"
+colors.teal = "#0088cc"
+colors.orange = "#FFB86C"
 
 local modes = {
   ["n"] = { "NORMAL", colors.red },
   ["no"] = { "N-PENDING", colors.red },
-  ["i"] = { "INSERT", colors.dark_purple },
-  ["ic"] = { "INSERT", colors.dark_purple },
+  ["i"] = { "INSERT", colors.purple },
+  ["ic"] = { "INSERT", colors.purple },
   ["t"] = { "TERMINAL", colors.green },
   ["v"] = { "VISUAL", colors.cyan },
   ["V"] = { "V-LINE", colors.cyan },
   [""] = { "V-BLOCK", colors.cyan },
   ["R"] = { "REPLACE", colors.orange },
   ["Rv"] = { "V-REPLACE", colors.orange },
-  ["s"] = { "SELECT", colors.nord_blue },
-  ["S"] = { "S-LINE", colors.nord_blue },
-  [""] = { "S-BLOCK", colors.nord_blue },
+  ["s"] = { "SELECT", colors.purple },
+  ["S"] = { "S-LINE", colors.purple },
+  [""] = { "S-BLOCK", colors.purple },
   ["c"] = { "COMMAND", colors.pink },
   ["cv"] = { "COMMAND", colors.pink },
   ["ce"] = { "COMMAND", colors.pink },
@@ -41,12 +48,12 @@ table.insert(components.active, {})
 components.active[1][1] = {
   provider = "  ",
 
-  hl = { fg = colors.white, bg = colors.nord_blue },
+  hl = { fg = colors.white, bg = colors.purple },
 
   right_sep = {
     str = style.right,
     hl = {
-      fg = colors.nord_blue,
+      fg = colors.purple,
       bg = colors.lightbg,
     }
   },
@@ -75,7 +82,7 @@ components.active[1][3] = {
     return "  " .. dir_name .. " "
   end,
 
-  hl = { fg = colors.grey_fg2, bg = colors.lightbg2 },
+  hl = { fg = colors.grey_fg, bg = colors.lightbg2 },
   right_sep = {
     str = style.right,
     hl = { fg = colors.lightbg2, bg = colors.statusline_bg },
@@ -84,19 +91,19 @@ components.active[1][3] = {
 
 components.active[1][4] = {
   provider = "git_diff_added",
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+  hl = { fg = colors.grey_fg, bg = colors.statusline_bg },
   icon = " ",
 }
 
 components.active[1][5] = {
   provider = "git_diff_changed",
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+  hl = { fg = colors.grey_fg, bg = colors.statusline_bg },
   icon = "   ",
 }
 
 components.active[1][6] = {
   provider = "git_diff_removed",
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+  hl = { fg = colors.grey_fg, bg = colors.statusline_bg },
   icon = "  ",
 }
 
@@ -124,7 +131,7 @@ components.active[1][9] = {
   enabled = function()
     return lsp.diagnostics_exist "Hint"
   end,
-  hl = { fg = colors.grey_fg2 },
+  hl = { fg = colors.purple },
   icon = "  ",
 }
 
@@ -144,12 +151,12 @@ components.active[3][1] = {
       return ""
     end
   end,
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+  hl = { fg = colors.grey_fg, bg = colors.statusline_bg },
 }
 
 components.active[3][2] = {
   provider = "git_branch",
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+  hl = { fg = colors.grey_fg, bg = colors.statusline_bg },
   icon = "  ",
 }
 

@@ -1,5 +1,7 @@
-local colors = require 'highligths'.get
+local colors = require 'highlights'.get
 vim.cmd 'hi NvimTreeBufferLabel gui=bold guifg=#F8F8F2 guibg=#232531'
+
+colors.light_grey = "#636571"
 
 require("bufferline").setup {
   options = {

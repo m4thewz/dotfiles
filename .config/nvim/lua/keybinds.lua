@@ -27,9 +27,7 @@ vim.tbl_map(
 local map = function(mode, keys, command, opt)
    local options = { noremap = true, silent = true }
 
-   if opt then
-      options = vim.tbl_extend("force", options, opt)
-   end
+   if opt then options = vim.tbl_extend("force", options, opt) end
 
   vim.api.nvim_set_keymap(mode, keys, command, options)
 end

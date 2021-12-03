@@ -3,10 +3,10 @@ local lspkind = require("lspkind")
 local kinds = vim.lsp.protocol.CompletionItemKind
 
 local source_mapping = {
-  buffer = "[Buffer]",
-  nvim_lsp = "[LSP]",
-  nvim_lua = "[Lua]",
-  path = "[Path]",
+  buffer = "",
+  nvim_lsp = "",
+  nvim_lua = "",
+  path = "",
 }
 
 local icons = {
@@ -54,8 +54,9 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, vim_item)
-      vim_item.kind = lspkind.presets.default[vim_item.kind]
+      -- vim_item.kind = lspkind.presets.default[vim_item.kind]
       vim_item.menu = source_mapping[entry.source.name]
+      vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
 
       return vim_item
     end

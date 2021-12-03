@@ -1,6 +1,7 @@
-require('options')
-require('keybinds')
+require 'options'
+require 'keybinds'
 
--- Load plugins
 require 'plugins'
+
+require 'highlights'.apply()
 
