@@ -2,35 +2,32 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 local kinds = vim.lsp.protocol.CompletionItemKind
 
-local source_mapping = {
-  buffer = "",
-  nvim_lsp = "",
-  nvim_lua = "",
-  path = "",
-}
-
 local icons = {
-  Class = " ",
-  Color = " ",
-  Constant = " ",
-  Constructor = " ",
-  Enum = "了 ",
-  EnumMember = " ",
-  Field = " ",
-  File = " ",
-  Folder = " ",
-  Function = " ",
-  Interface = "ﰮ ",
-  Keyword = " ",
-  Method = "ƒ ",
-  Module = " ",
-  Property = " ",
-  Snippet = "﬌ ",
-  Struct = " ",
-  Text = " ",
-  Unit = " ",
-  Value = " ",
-  Variable = " ",
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
 }
 
 lspkind.init({ with_text = true })
@@ -53,11 +50,18 @@ cmp.setup({
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
   },
   formatting = {
+    fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
       -- vim_item.kind = lspkind.presets.default[vim_item.kind]
-      vim_item.menu = source_mapping[entry.source.name]
-      vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
+      vim_item.kind = string.format(' %s %s', icons[vim_item.kind], vim_item.kind)
 
+      vim_item.menu = ({
+        buffer = "",
+        nvim_lsp = "",
+        luasnip = "",
+        nvim_lua = "",
+        latex_symbols = "",
+      })[entry.source.name]
       return vim_item
     end
   },
