@@ -87,17 +87,7 @@ packer.startup(function(use)
   }
 
   -- LSP
-  use {
-    'L3MON4D3/LuaSnip',
-    requires = 'rafamadriz/friendly-snippets',
-    config = function ()
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { vim.env.HOME .. "/.vim/plugged/friendly-snippets" },
-        include = nil,
-        exclude = {},
-      })
-    end
-  }
+
   use {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -106,6 +96,14 @@ packer.startup(function(use)
       'onsails/lspkind-nvim',
       { 'hrsh7th/cmp-buffer', event = "InsertEnter" },
       { 'hrsh7th/cmp-path', event = "InsertEnter" },
+      { 'saadparwaiz1/cmp_luasnip', event = "InsertEnter"},
+      { 'hrsh7th/cmp-nvim-lua', event = "InsertEnter"},
+      {
+        'L3MON4D3/LuaSnip',
+        event = "Insertenter",
+        requires = 'rafamadriz/friendly-snippets',
+        config = [[ require("luasnip.loaders.from_vscode").load() ]]
+      }
     }
   }
 
