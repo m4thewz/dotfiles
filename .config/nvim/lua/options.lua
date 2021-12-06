@@ -42,5 +42,7 @@ o.expandtab = true
 o.undofile = true
 o.updatetime = 250
 
-o.whichwrap:append "<>[]hl"
+vim.opt.whichwrap:append "<>[]hl"
+
+vim.cmd [[autocmd BufEnter,BufWinEnter,FileType,WinEnter * if @% == 'NvimTree' | set laststatus=0 | else | set laststatus=2 | endif]]
 
