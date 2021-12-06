@@ -1,29 +1,3 @@
--- Disable distribution plugins
-
-vim.tbl_map(
-  function(p)
-    vim.g['loaded_' .. p] = 0
-  end, {
-  'gzip',
-  'tar',
-  'tarPlugin',
-  'zip',
-  'zipPlugin',
-  'getscript',
-  'getscriptPlugin',
-  'vimball',
-  'vimballPlugin',
-  'matchit',
-  'matchparen',
-  '2html_plugin',
-  'logiPat',
-  'rrhelper',
-  'netrw',
-  'netrwPlugin',
-  'netrwSettings',
-  'netrwFileHandlers'
-})
-
 local map = function(mode, keys, command, opt)
    local options = { noremap = true, silent = true }
 

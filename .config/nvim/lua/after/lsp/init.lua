@@ -6,5 +6,20 @@ require('after.lsp.servers')
 require('after.lsp.saga')
 require('after.lsp.diagnostics')
 
-lsp.protocol.make_client_capabilities().textDocument.completion.completionItem.snippetSupport = true
+local completionItem = lsp.protocol.make_client_capabilities()
 
+completionItem.documentationFormat = { "markdown", "plaintext" }
+completionItem.snippetSupport = true
+completionItem.preselectSupport = true
+completionItem.insertReplaceSupport = true
+completionItem.labelDetailsSupport = true
+completionItem.deprecatedSupport = true
+completionItem.commitCharactersSupport = true
+completionItem.tagSupport = { valueSet = { 1 } }
+completionItem.resolveSupport = {
+   properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+   },
+}

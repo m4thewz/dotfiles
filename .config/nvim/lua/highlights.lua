@@ -73,7 +73,7 @@ M.apply = function ()
   highlight("Cursor", '282a36', 'e9e9f4', nil, nil)
 
   highlight("FloatBorder", 'bd93f9', nil, nil, nil)
-  highlight("NormalFloat", '373844', nil, nil, nil)
+  highlight("NormalFloat", 'f8f8f2', nil, nil, nil)
 
   highlight("Pmenu", 'e9e9f4', '373844', 'none', nil)
   highlight("PmenuSbar", nil, '44475a', nil, nil)
