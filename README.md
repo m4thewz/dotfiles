@@ -11,3 +11,4 @@ Components | Packages / Programs
 **CLI System Monitor**    | [`gotop`](https://github.com/cjbassi/gotop)
 **CLI Shell**             | [`zsh`](https://www.zsh.org/)
 
+Neovim config: [https://github.com/m4thewz/nvim](https://github.com/m4thewz/nvim)
