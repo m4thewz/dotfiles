@@ -1,4 +1,4 @@
-## `My dotfiles` - Just for backup
+## `My dotfiles`
 
 Components | Packages / Programs
 --- | --- |
