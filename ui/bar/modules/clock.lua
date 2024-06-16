@@ -24,7 +24,7 @@ local clock = wibox.widget {
   fg = beautiful.fg,
   buttons = {
     awful.button({}, 1, function()
-      awesome.emit_signal('toggle::moment')
+      awesome.emit_signal('calendar::toggle')
     end)
   },
   widget = wibox.container.background,

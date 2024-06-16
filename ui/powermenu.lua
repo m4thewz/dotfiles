@@ -8,9 +8,11 @@ local dpi = beautiful.xresources.apply_dpi
 
 local function get_en_date()
   local handle = io.popen("LC_TIME=en_US.UTF-8 TZ=America/Sao_Paulo date +'%A - %B %d, %Y'")
-  local result = handle:read("*a")
-  handle:close()
-  return result:gsub("\n", "")
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    return result:gsub("\n", "")
+  end
 end
 
 local button = function(name, icon, clr, command)

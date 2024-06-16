@@ -11,6 +11,8 @@ theme.icon_font                                       = 'Symbols Nerd Font Mono 
 theme.wallpaper                                       = home .. "/.config/awesome/assets/wallpaper.png"
 theme.profile_pic                                     = home .. "/.face"
 theme.useless_gap                                     = 1
+theme.wibar_height                                    = dpi(40)
+theme.border_radius                                   = 12
 
 --Colors
 theme.black                                           = '#0a0a0b'
@@ -32,7 +34,7 @@ theme.lightblue                                       = '#74c7ec'
 theme.blue                                            = '#7287fd'
 theme.magenta                                         = '#8839ef'
 theme.purple                                          = '#BD93F9'
-
+theme.transparent                                     = '#00000000'
 theme.border_width                                    = 0
 theme.border_normal                                   = theme.black
 theme.border_focus                                    = theme.bg_dark
